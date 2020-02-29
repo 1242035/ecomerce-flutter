@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/widgets.dart';
 import 'package:shop/tools/app_methods.dart';
 import 'app_data.dart';
 import 'app_tools.dart';
@@ -11,11 +12,13 @@ class FirebaseMethods implements AppMethods {
   FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
-  Future<String> createUserAccount(
-      {String fullname, String phone, String email, String password}) async {
-    // TODO: implement createUserAccount
+  Future<String> createUserAccount({
+    String fullname, 
+    String phone, 
+    String email, 
+    String password
+  }) async {
     FirebaseUser user;
-
     try {
       user = ( 
         await auth.createUserWithEmailAndPassword(
@@ -23,12 +26,13 @@ class FirebaseMethods implements AppMethods {
         ) 
       ).user;
     } on PlatformException catch (e) {
-      //print(e.details);
+      
       return errorMSG(e.details);
     }
 
     try {
-      if (user != null) {
+      if (user != null) 
+      {
         await firestore.collection(usersData)
         .document(user.uid)
         .setData({
@@ -48,14 +52,12 @@ class FirebaseMethods implements AppMethods {
       //print(e.details);
       return errorMSG(e.details);
     }
-
-    return user == null ? errorMSG("Error") : successfulMSG();
+    print('End sign');
+    return user == null ? errorMSG("On signup error") : successfulMSG();
   }
 
   @override
   Future<String> logginUser({String email, String password}) async {
-    // TODO: implement logginUser
-
     FirebaseUser user;
     try {
       user = (
@@ -102,7 +104,6 @@ class FirebaseMethods implements AppMethods {
 
   @override
   Future<bool> logOutUser() async {
-    // TODO: implement logOutUser
     await auth.signOut();
     await clearDataLocally();
 
@@ -111,7 +112,6 @@ class FirebaseMethods implements AppMethods {
 
   @override
   Future<DocumentSnapshot> getUserInfo(String userid) async {
-    // TODO: implement getUserInfo
     return await firestore.collection(usersData).document(userid).get();
   }
 }

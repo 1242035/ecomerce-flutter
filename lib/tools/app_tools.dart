@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:shop/tools/progressdialog.dart';
+import 'package:shop/tools/progress_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Widget appTextField(
