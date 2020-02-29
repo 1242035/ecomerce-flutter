@@ -1,41 +1,30 @@
 import 'dart:async';
+import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/widgets.dart';
 import 'package:shop/tools/app_methods.dart';
 import 'app_data.dart';
 import 'app_tools.dart';
-import 'package:flutter/services.dart';
 
 class FirebaseMethods implements AppMethods {
   Firestore firestore = Firestore.instance;
   FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
-  Future<String> createUserAccount({
-    String fullname, 
-    String phone, 
-    String email, 
-    String password
-  }) async {
+  Future<String> createUserAccount(
+      {String fullname, String phone, String email, String password}) async {
     FirebaseUser user;
     try {
-      user = ( 
-        await auth.createUserWithEmailAndPassword(
-          email: email, password: password
-        ) 
-      ).user;
+      user = (await auth.createUserWithEmailAndPassword(
+              email: email, password: password))
+          .user;
     } on PlatformException catch (e) {
-      
       return errorMSG(e.details);
     }
 
     try {
-      if (user != null) 
-      {
-        await firestore.collection(usersData)
-        .document(user.uid)
-        .setData({
+      if (user != null) {
+        await firestore.collection(usersData).document(user.uid).setData({
           userID: user.uid,
           acctFullName: fullname,
           userEmail: email,
@@ -60,11 +49,9 @@ class FirebaseMethods implements AppMethods {
   Future<String> logginUser({String email, String password}) async {
     FirebaseUser user;
     try {
-      user = (
-        await auth.signInWithEmailAndPassword(
-          email: email, password: password
-        ) 
-      ).user;
+      user = (await auth.signInWithEmailAndPassword(
+              email: email, password: password))
+          .user;
 
       if (user != null) {
         DocumentSnapshot userInfo = await getUserInfo(user.uid);

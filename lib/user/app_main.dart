@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:shop/admin/admin_home.dart';
-import 'package:shop/tools/Store.dart';
+import 'package:shop/tools/store.dart';
 import 'package:shop/tools/app_data.dart';
 import 'package:shop/tools/app_methods.dart';
 import 'package:shop/tools/app_tools.dart';

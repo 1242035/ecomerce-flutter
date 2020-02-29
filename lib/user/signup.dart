@@ -131,8 +131,7 @@ class _SignUpState extends State<SignUp> {
     if (response == successful) {
       Navigator.of(context).pop();
       Navigator.of(context).pop(true);
-    } 
-    else {
+    } else {
       showSnackBar(response ?? 'error', scaffoldKey);
     }
   }
