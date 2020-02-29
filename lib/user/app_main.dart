@@ -1,17 +1,14 @@
 import 'dart:async';
 
-//import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:shop/adminScreens/admin_home.dart';
+import 'package:shop/admin/admin_home.dart';
 import 'package:shop/tools/Store.dart';
 import 'package:shop/tools/app_data.dart';
 import 'package:shop/tools/app_methods.dart';
 import 'package:shop/tools/app_tools.dart';
 import 'package:shop/tools/firebase_methods.dart';
-//import 'package:shop/userScreens/item_details.dart';
-import 'package:shop/userScreens/itemdetails.dart';
-//import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shop/user/item_details.dart';
 import 'favorites.dart';
 import 'messages.dart';
 import 'cart.dart';
@@ -19,16 +16,14 @@ import 'notifications.dart';
 import 'history.dart';
 import 'profile.dart';
 import 'delivery.dart';
-import 'aboutUs.dart';
 import 'login.dart';
-import 'dart:io';
 
-class MyHomePage extends StatefulWidget {
+class AppMain extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _AppState createState() => _AppState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _AppState extends State<AppMain> {
   BuildContext context;
   String acctName = "";
   String acctEmail = "";
@@ -38,7 +33,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     getCurrentUser();
     super.initState();
   }

@@ -3,7 +3,7 @@ import 'package:shop/tools/app_data.dart';
 import 'package:shop/tools/app_methods.dart';
 import 'package:shop/tools/app_tools.dart';
 import 'package:shop/tools/firebase_methods.dart';
-import 'package:shop/userScreens/signup.dart';
+import 'package:shop/user/signup.dart';
 
 class GirliesLogin extends StatefulWidget {
   @override

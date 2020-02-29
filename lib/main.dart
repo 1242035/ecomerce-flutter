@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'userScreens/myHomePage.dart';
+import 'user/app_main.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(new App());
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(),
+      home: new AppMain(),
     );
   }
 }

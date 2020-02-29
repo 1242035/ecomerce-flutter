@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shop/userScreens/cart.dart';
+import 'package:shop/user/cart.dart';
 
 class ItemDetail extends StatefulWidget {
   String itemName;
