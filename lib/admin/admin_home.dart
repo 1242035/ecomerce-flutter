@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:shop/adminScreens/add_products.dart';
-import 'package:shop/adminScreens/app_messages.dart';
-import 'package:shop/adminScreens/app_orders.dart';
-import 'package:shop/adminScreens/app_products.dart';
-import 'package:shop/adminScreens/app_users.dart';
-import 'package:shop/adminScreens/order_history.dart';
-import 'package:shop/adminScreens/privilages.dart';
-import 'package:shop/adminScreens/search_data.dart';
+import 'package:shop/admin/add_products.dart';
+import 'package:shop/admin/app_messages.dart';
+import 'package:shop/admin/app_orders.dart';
+import 'package:shop/admin/app_products.dart';
+import 'package:shop/admin/app_users.dart';
+import 'package:shop/admin/order_history.dart';
+import 'package:shop/admin/privilages.dart';
+import 'package:shop/admin/search_data.dart';
 
 class AdminHome extends StatefulWidget {
   @override
