@@ -1,12 +1,16 @@
 import 'dart:async';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class AppMethods {
-  Future<String> logginUser({String email, String password});
-  Future<String> createUserAccount(
-      {String fullname, String phone, String email, String password});
-  Future<bool> logOutUser();
+  Future<String> signIn(String email, String password);
 
-  Future<DocumentSnapshot> getUserInfo(String userid);
+  Future<String> signUp(String email, String password);
+
+  Future<FirebaseUser> getCurrentUser();
+
+  Future<void> sendEmailVerification();
+
+  Future<void> signOut();
+
+  Future<bool> isEmailVerified();
 }
