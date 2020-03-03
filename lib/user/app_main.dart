@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:shop/admin/admin_home.dart';
@@ -25,6 +26,7 @@ class AppMain extends StatefulWidget {
 
 class _AppState extends State<AppMain> {
   BuildContext context;
+  FirebaseUser user;
   String acctName = "";
   String acctEmail = "";
   String acctPhotoURL = "";
@@ -38,13 +40,13 @@ class _AppState extends State<AppMain> {
   }
 
   Future getCurrentUser() async {
-    acctName = await getStringDataLocally(key: acctFullName);
-    acctEmail = await getStringDataLocally(key: userEmail);
-    acctPhotoURL = await getStringDataLocally(key: photoURL);
-    isLoggedIn = await getBoolDataLocally(key: loggedIN);
-    //print(await getStringDataLocally(key: userEmail));
-    acctName == null ? acctName = "Guest User" : acctName;
-    acctEmail == null ? acctEmail = "guestUser@email.com" : acctEmail;
+    user = await appMethods.getCurrentUser();
+    acctName = user.displayName;
+    acctEmail = user.email;
+    acctPhotoURL = user.photoUrl;
+    isLoggedIn = user != null && user.uid != null ? true : false;
+    acctName = acctName == null ? "Guest" : acctName;
+    acctEmail = acctEmail == null ?  "guest@email.com" : acctEmail;
     setState(() {});
   }
 
@@ -337,8 +339,11 @@ class _AppState extends State<AppMain> {
       if (response == true) getCurrentUser();
       return;
     }
-    bool response = await appMethods.logOutUser();
-    if (response == true) getCurrentUser();
+    appMethods.signOut()
+    .then( (res) {
+      getCurrentUser();
+    })
+    .catchError( (error) => print(error));
   }
 
   openAdmin() {

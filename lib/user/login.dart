@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shop/tools/app_data.dart';
 import 'package:shop/tools/app_methods.dart';
 import 'package:shop/tools/app_tools.dart';
 import 'package:shop/tools/firebase_methods.dart';
@@ -82,14 +81,15 @@ class _GirliesLoginState extends State<GirliesLogin> {
     }
 
     displayProgressDialog(context);
-    String response = await appMethod.logginUser(
-        email: email.text.toLowerCase(), password: password.text.toLowerCase());
-    if (response == successful) {
+    appMethod.signIn(
+        email.text.toLowerCase(), password.text.toLowerCase())
+    .then( (uid){
       closeProgressDialog(context);
       Navigator.of(context).pop(true);
-    } else {
+    })
+    .catchError((error){
       closeProgressDialog(context);
-      showSnackBar(response, scaffoldKey);
-    }
+      showSnackBar(error.details ?? error.toString(), scaffoldKey);
+    });
   }
 }
