@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 
 class GirliesFavorities extends StatefulWidget {
   @override
@@ -10,12 +11,12 @@ class _GirliesFavoritiesState extends State<GirliesFavorities> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: new Text("My Favorites"),
+        title: new Text( translate("My Favorites") ),
         centerTitle: false,
       ),
       body: new Center(
         child: new Text(
-          "My Favorites",
+          translate("My Favorites"),
           style: new TextStyle(fontSize: 25.0),
         ),
       ),

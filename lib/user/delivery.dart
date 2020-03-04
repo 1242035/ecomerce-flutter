@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 
 class GirliesDelivery extends StatefulWidget {
   @override
@@ -10,12 +11,12 @@ class _GirliesDeliveryState extends State<GirliesDelivery> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Delivery Information"),
+        title: new Text( translate("Delivery Information") ),
         centerTitle: false,
       ),
       body: new Center(
         child: new Text(
-          "My Address",
+          translate("My Address"),
           style: new TextStyle(fontSize: 25.0),
         ),
       ),

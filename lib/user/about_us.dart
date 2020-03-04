@@ -1,3 +1,4 @@
+import 'package:flutter_translate/flutter_translate.dart';
 import 'package:flutter/material.dart';
 
 class GirliesAboutUs extends StatefulWidget {
@@ -10,12 +11,12 @@ class _GirliesAboutUsState extends State<GirliesAboutUs> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("About Us"),
+        title: new Text( translate("About Us") ),
         centerTitle: false,
       ),
       body: new Center(
         child: new Text(
-          "About Girlies",
+          translate("About Viauco"),
           style: new TextStyle(fontSize: 25.0),
         ),
       ),
