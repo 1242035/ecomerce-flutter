@@ -37,11 +37,11 @@ Widget appTextField(
 }
 
 Widget appButton(
-    {String btnTxt,
+  {String btnTxt,
     double btnPadding,
     Color btnColor,
     VoidCallback onBtnclicked}) {
-  btnTxt == null ? btnTxt == "App Button" : btnTxt;
+  btnTxt == null ? btnTxt = "App Button" : btnTxt;
   btnPadding == null ? btnPadding = 0.0 : btnPadding;
   btnColor == null ? btnColor = Colors.black : btnColor;
 
