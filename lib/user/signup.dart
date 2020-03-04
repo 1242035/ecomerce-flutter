@@ -120,19 +120,18 @@ class _SignUpState extends State<SignUp> {
       showSnackBar("Passwords don't match", scaffoldKey);
       return;
     }
-
     displayProgressDialog(context);
-    String response = await appMethod.createUserAccount(
-        fullname: fullname.text,
-        phone: phoneNumber.text,
-        email: email.text.toLowerCase(),
-        password: password.text.toLowerCase());
-    closeProgressDialog(context);
-    if (response == successful) {
+    appMethod.signUp(
+        email.text.toLowerCase(),
+        password.text.toLowerCase()
+    ).then((uid) {
+      closeProgressDialog(context);
       Navigator.of(context).pop();
       Navigator.of(context).pop(true);
-    } else {
-      showSnackBar(response ?? 'error', scaffoldKey);
-    }
+    })
+    .catchError((error) {
+      closeProgressDialog(context);
+      showSnackBar(error.details ?? 'error', scaffoldKey);
+    });
   }
 }
