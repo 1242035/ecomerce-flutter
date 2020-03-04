@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:shop/tools/app_methods.dart';
+import 'package:shop/base/app_methods.dart';
 
 class FirebaseMethods implements AppMethods {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;

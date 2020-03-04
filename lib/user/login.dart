@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shop/tools/app_methods.dart';
+import 'package:shop/base/app_methods.dart';
 import 'package:shop/tools/app_tools.dart';
-import 'package:shop/tools/firebase_methods.dart';
 import 'package:shop/user/signup.dart';
+import 'package:shop/repository/firebase_methods.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 
 class GirliesLogin extends StatefulWidget {
   @override
@@ -23,7 +24,7 @@ class _GirliesLoginState extends State<GirliesLogin> {
       key: scaffoldKey,
       backgroundColor: Theme.of(context).primaryColor,
       appBar: new AppBar(
-        title: new Text("Login"),
+        title: new Text( translate("Login") ),
         centerTitle: false,
         elevation: 0.0,
       ),
@@ -36,7 +37,7 @@ class _GirliesLoginState extends State<GirliesLogin> {
             appTextField(
                 isPassword: false,
                 sidePadding: 18.0,
-                textHint: "Email Address",
+                textHint:translate("Email Address"),
                 textIcon: Icons.email,
                 controller: email),
             new SizedBox(
@@ -45,11 +46,11 @@ class _GirliesLoginState extends State<GirliesLogin> {
             appTextField(
                 isPassword: true,
                 sidePadding: 18.0,
-                textHint: "Password",
+                textHint: translate("Password"),
                 textIcon: Icons.lock,
                 controller: password),
             appButton(
-                btnTxt: "Login",
+                btnTxt: translate("Login"),
                 onBtnclicked: verifyLoggin,
                 btnPadding: 20.0,
                 btnColor: Theme.of(context).primaryColor),
@@ -59,7 +60,7 @@ class _GirliesLoginState extends State<GirliesLogin> {
                     new MaterialPageRoute(builder: (context) => new SignUp()));
               },
               child: new Text(
-                "Not Registered? Sign Up Here",
+                translate("Not Registered? Sign Up Here"),
                 style: new TextStyle(color: Colors.white),
               ),
             )
@@ -71,23 +72,22 @@ class _GirliesLoginState extends State<GirliesLogin> {
 
   verifyLoggin() async {
     if (email.text == "") {
-      showSnackBar("Email cannot be empty", scaffoldKey);
+      showSnackBar( translate('FieldCanNotEmpty', args:{"field": translate('Email')}), scaffoldKey);
       return;
     }
 
     if (password.text == "") {
-      showSnackBar("Password cannot be empty", scaffoldKey);
+      showSnackBar( translate('FieldCanNotEmpty', args:{"field": translate('Password')}), scaffoldKey);
       return;
     }
 
     displayProgressDialog(context);
-    appMethod.signIn(
-        email.text.toLowerCase(), password.text.toLowerCase())
-    .then( (uid){
+    appMethod
+        .signIn(email.text.toLowerCase(), password.text.toLowerCase())
+        .then((uid) {
       closeProgressDialog(context);
       Navigator.of(context).pop(true);
-    })
-    .catchError((error){
+    }).catchError((error) {
       closeProgressDialog(context);
       showSnackBar(error.details ?? error.toString(), scaffoldKey);
     });

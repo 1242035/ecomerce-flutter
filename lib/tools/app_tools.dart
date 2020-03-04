@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:shop/tools/progress_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 
 Widget appTextField(
     {IconData textIcon,
@@ -41,7 +42,7 @@ Widget appButton(
     double btnPadding,
     Color btnColor,
     VoidCallback onBtnclicked}) {
-  btnTxt == null ? btnTxt = "App Button" : btnTxt;
+  btnTxt = btnTxt == null ? translate("App Button") : btnTxt;
   btnPadding == null ? btnPadding = 0.0 : btnPadding;
   btnColor == null ? btnColor = Colors.black : btnColor;
 
@@ -71,8 +72,8 @@ Widget productTextField(
     double height,
     TextEditingController controller,
     TextInputType textType}) {
-  textTitle == null ? textTitle = "Enter Title" : textTitle;
-  textHint == null ? textHint = "Enter Hint" : textHint;
+  textTitle = textTitle == null ? translate("Enter Title") : textTitle;
+  textHint = textHint == null ? translate("Enter Hint") : textHint;
   height == null ? height = 50.0 : height;
   //height !=null
 
@@ -116,7 +117,7 @@ Widget productDropDown(
     String selectedItem,
     List<DropdownMenuItem<String>> dropDownItems,
     ValueChanged<String> changedDropDownItems}) {
-  textTitle == null ? textTitle = "Enter Title" : textTitle;
+  textTitle = textTitle == null ? translate("Enter Title") : textTitle;
 
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -157,10 +158,7 @@ Widget MultiImagePickerMap(
     VoidCallback addNewImage(int position),
     VoidCallback removeNewImage(int position)}) {
   int imageLength = imageList.isEmpty ? 1 : imageList.length + 1;
-  bool isNull = imageList.isEmpty ? true : false;
-
-  print("Image length is $imageLength");
-
+  
   return new Padding(
     padding: const EdgeInsets.only(left: 15.0, right: 15.0),
     child: new SizedBox(
