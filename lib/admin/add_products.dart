@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shop/tools/app_data.dart';
 import 'package:shop/tools/app_tools.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 
 class AddProducts extends StatefulWidget {
   @override
@@ -50,7 +51,7 @@ class _AddProductsState extends State<AddProducts> {
       key: scaffoldKey,
       backgroundColor: Theme.of(context).primaryColor,
       appBar: new AppBar(
-        title: new Text("Add Products"),
+        title: new Text( translate("Add Products") ),
         centerTitle: false,
         elevation: 0.0,
         actions: <Widget>[
@@ -67,7 +68,7 @@ class _AddProductsState extends State<AddProducts> {
                   color: Colors.white,
                 ),
                 label: new Text(
-                  "Add Images",
+                  translate("Add Images"),
                   style: new TextStyle(color: Colors.white),
                 )),
           )
@@ -90,30 +91,30 @@ class _AddProductsState extends State<AddProducts> {
               height: 10.0,
             ),
             productTextField(
-                textTitle: "Product Title",
-                textHint: "Enter Product Title",
+                textTitle: translate("Product Title"),
+                textHint: translate("Enter Product Title"),
                 controller: prodcutTitle),
             new SizedBox(
               height: 10.0,
             ),
             productTextField(
-                textTitle: "Product Price",
-                textHint: "Enter Product Price",
+                textTitle: translate("Product Price"),
+                textHint: translate("Enter Product Price"),
                 textType: TextInputType.number,
                 controller: prodcutPrice),
             new SizedBox(
               height: 10.0,
             ),
             productTextField(
-                textTitle: "Product Description",
-                textHint: "Enter Description",
+                textTitle: translate("Product Description"),
+                textHint: translate("Enter Description"),
                 controller: prodcutDesc,
                 height: 180.0),
             new SizedBox(
               height: 10.0,
             ),
             productDropDown(
-                textTitle: "Product Category",
+                textTitle: translate("Product Category"),
                 selectedItem: selectedCategory,
                 dropDownItems: dropDownCategories,
                 changedDropDownItems: changedDropDownCategory),
@@ -124,12 +125,12 @@ class _AddProductsState extends State<AddProducts> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 productDropDown(
-                    textTitle: "Color",
+                    textTitle: translate("Color"),
                     selectedItem: selectedColor,
                     dropDownItems: dropDownColors,
                     changedDropDownItems: changedDropDownColor),
                 productDropDown(
-                    textTitle: "Size",
+                    textTitle: translate("Size"),
                     selectedItem: selectedSize,
                     dropDownItems: dropDownSizes,
                     changedDropDownItems: changedDropDownSize),
@@ -139,7 +140,7 @@ class _AddProductsState extends State<AddProducts> {
               height: 20.0,
             ),
             appButton(
-                btnTxt: "Add Product",
+                btnTxt: translate("Add Product"),
                 onBtnclicked: addNewProducts,
                 btnPadding: 20.0,
                 btnColor: Theme.of(context).primaryColor),
@@ -195,37 +196,37 @@ class _AddProductsState extends State<AddProducts> {
 
   addNewProducts() {
     if (imageList == null || imageList.isEmpty) {
-      showSnackBar("Product Images cannot be empty", scaffoldKey);
+      showSnackBar( translate('FieldCanNotEmpty', args:{ 'field': translate('Product Images')}), scaffoldKey);
       return;
     }
 
     if (prodcutTitle.text == "") {
-      showSnackBar("Product Title cannot be empty", scaffoldKey);
+      showSnackBar(translate('FieldCanNotEmpty', args:{ 'field': translate('Product Title')}), scaffoldKey);
       return;
     }
 
     if (prodcutPrice.text == "") {
-      showSnackBar("Product Price cannot be empty", scaffoldKey);
+      showSnackBar(translate('FieldCanNotEmpty', args:{ 'field': translate('Product Price')}), scaffoldKey);
       return;
     }
 
     if (prodcutDesc.text == "") {
-      showSnackBar("Product Description cannot be empty", scaffoldKey);
+      showSnackBar(translate('FieldCanNotEmpty', args:{ 'field': translate('Product Description')}), scaffoldKey);
       return;
     }
 
-    if (selectedCategory == "Select Product category") {
-      showSnackBar("Please select a category", scaffoldKey);
+    if (selectedCategory == translate("Select Product category") ){
+      showSnackBar( translate("Please select a category"), scaffoldKey);
       return;
     }
 
-    if (selectedColor == "Select a color") {
-      showSnackBar("Please select a color", scaffoldKey);
+    if (selectedColor == translate("Select a color") ) {
+      showSnackBar( translate("Please select a color"), scaffoldKey);
       return;
     }
 
-    if (selectedSize == "Select a size") {
-      showSnackBar("Please select a size", scaffoldKey);
+    if (selectedSize == translate("Select a size") ){
+      showSnackBar( translate("Please select a size"), scaffoldKey);
       return;
     }
   }

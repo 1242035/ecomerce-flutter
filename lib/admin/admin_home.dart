@@ -8,6 +8,7 @@ import 'package:shop/admin/app_users.dart';
 import 'package:shop/admin/order_history.dart';
 import 'package:shop/admin/privilages.dart';
 import 'package:shop/admin/search_data.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 
 class AdminHome extends StatefulWidget {
   @override
@@ -22,7 +23,7 @@ class _AdminHomeState extends State<AdminHome> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: new AppBar(
-        title: new Text("App Admin"),
+        title: new Text( translate("App Admin") ),
         centerTitle: true,
         elevation: 0.0,
       ),
@@ -51,7 +52,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text("Search Data"),
+                        new Text( translate("Search Data") ),
                       ],
                     ),
                   ),
@@ -70,7 +71,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text("App Users"),
+                        new Text( translate("App Users") ),
                       ],
                     ),
                   ),
@@ -97,7 +98,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text("App Orders"),
+                        new Text( translate("App Orders") ),
                       ],
                     ),
                   ),
@@ -116,7 +117,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text("App Messages"),
+                        new Text( translate("App Messages") ),
                       ],
                     ),
                   ),
@@ -143,7 +144,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text("App Products"),
+                        new Text( translate("App Products") ),
                       ],
                     ),
                   ),
@@ -162,7 +163,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text("Add Products"),
+                        new Text( translate("Add Products") ),
                       ],
                     ),
                   ),
@@ -189,7 +190,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text("Order History"),
+                        new Text( translate("Order History") ),
                       ],
                     ),
                   ),
@@ -208,7 +209,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text("Privilages"),
+                        new Text( translate("Privilages") ),
                       ],
                     ),
                   ),
