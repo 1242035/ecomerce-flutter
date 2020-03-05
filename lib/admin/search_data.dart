@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 
 class SearchData extends StatefulWidget {
   @override
@@ -10,12 +11,12 @@ class _SearchDataState extends State<SearchData> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Search Data"),
+        title: new Text( translate("Search Data") ),
         centerTitle: false,
       ),
       body: new Center(
         child: new Text(
-          "Search Data",
+          translate("Search Data"),
           style: new TextStyle(fontSize: 25.0),
         ),
       ),

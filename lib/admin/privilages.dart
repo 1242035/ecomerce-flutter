@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 
 class Privilages extends StatefulWidget {
   @override
@@ -10,12 +11,12 @@ class _PrivilagesState extends State<Privilages> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Privilages"),
+        title: new Text( translate("Privilages") ),
         centerTitle: false,
       ),
       body: new Center(
         child: new Text(
-          "Privilages",
+          translate("Privilages"),
           style: new TextStyle(fontSize: 25.0),
         ),
       ),
