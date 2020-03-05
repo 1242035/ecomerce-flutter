@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/user/cart.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 
 class ItemDetail extends StatefulWidget {
   String itemName;
@@ -26,7 +27,7 @@ class _ItemDetailState extends State<ItemDetail> {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: new AppBar(
-        title: new Text("Item Detail"),
+        title: new Text( translate("Item Detail") ),
         centerTitle: false,
         iconTheme: IconThemeData(color: Colors.white),
       ),
@@ -78,7 +79,7 @@ class _ItemDetailState extends State<ItemDetail> {
                           height: 10.0,
                         ),
                         new Text(
-                          "Item Sub name",
+                          translate("Item Sub name"),
                           style: new TextStyle(
                               fontSize: 14.0, fontWeight: FontWeight.w400),
                         ),
@@ -163,7 +164,7 @@ class _ItemDetailState extends State<ItemDetail> {
                           height: 10.0,
                         ),
                         new Text(
-                          "Description",
+                          translate("Description"),
                           style: new TextStyle(
                               fontSize: 18.0, fontWeight: FontWeight.w700),
                         ),
@@ -171,7 +172,7 @@ class _ItemDetailState extends State<ItemDetail> {
                           height: 10.0,
                         ),
                         new Text(
-                          "My item full information",
+                          translate("My item full information"),
                           style: new TextStyle(
                               fontSize: 14.0, fontWeight: FontWeight.w400),
                         ),
@@ -193,7 +194,7 @@ class _ItemDetailState extends State<ItemDetail> {
                           height: 10.0,
                         ),
                         new Text(
-                          "Colors",
+                          translate("Colors"),
                           style: new TextStyle(
                               fontSize: 18.0, fontWeight: FontWeight.w700),
                         ),
@@ -209,7 +210,7 @@ class _ItemDetailState extends State<ItemDetail> {
                                 return Padding(
                                   padding: const EdgeInsets.all(4.0),
                                   child: new ChoiceChip(
-                                      label: new Text("Color ${index}"),
+                                      label: new Text( translate("ColorIndex", args: {"index": index} ) ),
                                       selected: false),
                                 );
                               }),
@@ -218,7 +219,7 @@ class _ItemDetailState extends State<ItemDetail> {
                           height: 10.0,
                         ),
                         new Text(
-                          "Sizes",
+                          translate("Sizes"),
                           style: new TextStyle(
                               fontSize: 18.0, fontWeight: FontWeight.w700),
                         ),
@@ -234,7 +235,7 @@ class _ItemDetailState extends State<ItemDetail> {
                                 return Padding(
                                   padding: const EdgeInsets.all(4.0),
                                   child: new ChoiceChip(
-                                      label: new Text("Size ${index}"),
+                                      label: new Text(translate("SizeIndex", args: {"index": index} ) ),
                                       selected: false),
                                 );
                               }),
@@ -243,7 +244,7 @@ class _ItemDetailState extends State<ItemDetail> {
                           height: 10.0,
                         ),
                         new Text(
-                          "Sizes",
+                          translate("Sizes"),
                           style: new TextStyle(
                               fontSize: 18.0, fontWeight: FontWeight.w700),
                         ),
@@ -309,7 +310,7 @@ class _ItemDetailState extends State<ItemDetail> {
               new Container(
                 width: (screenSize.width - 20) / 2,
                 child: new Text(
-                  "ADD TO FAVORITES",
+                  translate("ADD TO FAVORITES"),
                   textAlign: TextAlign.center,
                   style: new TextStyle(
                       color: Colors.white, fontWeight: FontWeight.w700),
@@ -318,7 +319,7 @@ class _ItemDetailState extends State<ItemDetail> {
               new Container(
                 width: (screenSize.width - 20) / 2,
                 child: new Text(
-                  "ORDER NOW",
+                  translate("ORDER NOW"),
                   textAlign: TextAlign.center,
                   style: new TextStyle(
                       color: Colors.white, fontWeight: FontWeight.w700),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 
 class ProgressDialog extends StatelessWidget {
   @override
@@ -19,7 +20,7 @@ class ProgressDialog extends StatelessWidget {
                   new CircularProgressIndicator(),
                   new SizedBox(height: 15.0),
                   new Text(
-                    "Please wait....",
+                    translate("Please wait...."),
                     style: new TextStyle(
                         color: Colors.white,
                         fontSize: 16.0,

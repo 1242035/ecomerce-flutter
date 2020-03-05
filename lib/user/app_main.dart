@@ -1,14 +1,13 @@
 import 'dart:async';
 
+import 'package:flutter_translate/flutter_translate.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:shop/admin/admin_home.dart';
 import 'package:shop/tools/store.dart';
-import 'package:shop/tools/app_data.dart';
-import 'package:shop/tools/app_methods.dart';
-import 'package:shop/tools/app_tools.dart';
-import 'package:shop/tools/firebase_methods.dart';
+import 'package:shop/base/app_methods.dart';
+import 'package:shop/repository/firebase_methods.dart';
 import 'package:shop/user/item_details.dart';
 import 'favorites.dart';
 import 'messages.dart';
@@ -41,12 +40,12 @@ class _AppState extends State<AppMain> {
 
   Future getCurrentUser() async {
     user = await appMethods.getCurrentUser();
-    acctName = user.displayName;
-    acctEmail = user.email;
-    acctPhotoURL = user.photoUrl;
+    acctName = user != null && user.displayName != null ? user.displayName : '';
+    acctEmail = user != null && user.email != null ?  user.email : '';
+    acctPhotoURL = user != null && user.photoUrl != null ?  user.photoUrl : '';
     isLoggedIn = user != null && user.uid != null ? true : false;
     acctName = acctName == null ? "Guest" : acctName;
-    acctEmail = acctEmail == null ?  "guest@email.com" : acctEmail;
+    acctEmail = acctEmail == null ? "guest@email.com" : acctEmail;
     setState(() {});
   }
 
@@ -57,7 +56,7 @@ class _AppState extends State<AppMain> {
       appBar: new AppBar(
         title: GestureDetector(
           onLongPress: openAdmin,
-          child: new Text("Girlies"),
+          child: new Text( translate("ShopTitle") ),
         ),
         centerTitle: true,
         actions: <Widget>[
@@ -249,7 +248,7 @@ class _AppState extends State<AppMain> {
                   size: 20.0,
                 ),
               ),
-              title: new Text("Order Notifications"),
+              title: new Text( translate("Order Notifications") ),
               onTap: () {
                 Navigator.of(context).push(new CupertinoPageRoute(
                     builder: (BuildContext context) =>
@@ -264,7 +263,7 @@ class _AppState extends State<AppMain> {
                   size: 20.0,
                 ),
               ),
-              title: new Text("Order History"),
+              title: new Text(translate("Order History")),
               onTap: () {
                 Navigator.of(context).push(new CupertinoPageRoute(
                     builder: (BuildContext context) => new GirliesHistory()));
@@ -279,7 +278,7 @@ class _AppState extends State<AppMain> {
                   size: 20.0,
                 ),
               ),
-              title: new Text("Profile Settings"),
+              title: new Text( translate("Profile Settings") ),
               onTap: () {
                 Navigator.of(context).push(new CupertinoPageRoute(
                     builder: (BuildContext context) => new GirliesProfile()));
@@ -293,7 +292,7 @@ class _AppState extends State<AppMain> {
                   size: 20.0,
                 ),
               ),
-              title: new Text("Delivery Address"),
+              title: new Text( translate("Delivery Address") ),
               onTap: () {
                 Navigator.of(context).push(new CupertinoPageRoute(
                     builder: (BuildContext context) => new GirliesDelivery()));
@@ -323,7 +322,7 @@ class _AppState extends State<AppMain> {
                   size: 20.0,
                 ),
               ),
-              title: new Text(isLoggedIn == true ? "Logout" : "Login"),
+              title: new Text(isLoggedIn == true ? translate("Logout") : translate("Login")),
               onTap: checkIfLoggedIn,
             ),
           ],
@@ -339,11 +338,9 @@ class _AppState extends State<AppMain> {
       if (response == true) getCurrentUser();
       return;
     }
-    appMethods.signOut()
-    .then( (res) {
+    appMethods.signOut().then((res) {
       getCurrentUser();
-    })
-    .catchError( (error) => print(error));
+    }).catchError((error) => print(error));
   }
 
   openAdmin() {
