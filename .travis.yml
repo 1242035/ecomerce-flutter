@@ -6,9 +6,16 @@ jobs:
     - name: "iOS tests, stable channel"
       os: osx
       osx_image: xcode11.2
-      language: objective-c
-      script: ./flutter/bin/flutter build ios
-      env: FLUTTER_VERSION=stable
+      language: generic
+      before_script:
+        - pip install six
+        - brew update
+        - brew install --HEAD libimobiledevice
+        - brew install ideviceinstaller
+        - brew install ios-deploy
+        - git clone https://github.com/flutter/flutter.git -b stable
+        - ./flutter/bin/flutter doctor
+      script: ./flutter/bin/flutter -v build ios --no-codesign
 
     - name: "Android tests, stable channel"
       os: linux
@@ -18,15 +25,11 @@ jobs:
         components:
           - build-tools-28.0.3
           - android-28
+      before_script:
+        - git clone https://github.com/flutter/flutter.git -b stable
+        - ./flutter/bin/flutter doctor
+
       script: ./flutter/bin/flutter build apk
-      env: FLUTTER_VERSION=stable
-
-  allow_failures:
-    - env: FLUTTER_VERSION=beta
-
-before_script:
-  - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
-  - ./flutter/bin/flutter doctor
 
 cache:
   cocoapods: true
