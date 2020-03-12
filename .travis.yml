@@ -19,7 +19,6 @@ matrix:
     - cd ..
     - zip -r app.ipa Payload
     - popd
-
 cache:
   directories:
   - "$HOME/.pub-cache"
