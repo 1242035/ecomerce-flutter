@@ -3,21 +3,13 @@ git:
 
 jobs:
   include:
-    - name: "iOS tests, stable channel"
+    - name: "iOS build stable"
       os: osx
       osx_image: xcode11.2
-      language: generic
-      before_script:
-        - pip install six
-        - brew update
-        - brew install --HEAD libimobiledevice
-        - brew install ideviceinstaller
-        - brew install ios-deploy
-        - git clone https://github.com/flutter/flutter.git -b stable
-        - ./flutter/bin/flutter doctor
+      language: objective-c
       script: ./flutter/bin/flutter -v build ios --no-codesign
 
-    - name: "Android tests, stable channel"
+    - name: "Android build stable"
       os: linux
       dist: trusty
       language: android
@@ -25,12 +17,12 @@ jobs:
         components:
           - build-tools-28.0.3
           - android-28
-      before_script:
-        - git clone https://github.com/flutter/flutter.git -b stable
-        - ./flutter/bin/flutter doctor
-
       script: ./flutter/bin/flutter build apk
 
+before_script:
+  - git clone -b stable https://github.com/flutter/flutter.git
+  - ./flutter/bin/flutter doctor
+  - ./flutter/bin/flutter public get
 cache:
   cocoapods: true
   directories:
