@@ -12,8 +12,8 @@ Widget appTextField(
     double sidePadding,
     TextInputType textType,
     TextEditingController controller}) {
-  sidePadding == null ? sidePadding = 0.0 : sidePadding;
-  textHint == null ? textHint = "" : textHint;
+  sidePadding = sidePadding == null ? 0.0 : sidePadding;
+  textHint = textHint == null ? "" : textHint;
   //textType == null ? textType == TextInputType.text : textType;
 
   return Padding(

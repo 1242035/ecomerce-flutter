@@ -7,7 +7,7 @@ jobs:
       os: osx
       osx_image: xcode11.2
       language: objective-c
-      script: ./tool/travis_ios_script.sh
+      script: ./flutter/bin/flutter build ios
       env: FLUTTER_VERSION=stable
 
     - name: "Android tests, stable channel"
@@ -18,40 +18,8 @@ jobs:
         components:
           - build-tools-28.0.3
           - android-28
-      script: ./tool/travis_android_script.sh
+      script: ./flutter/bin/flutter build apk
       env: FLUTTER_VERSION=stable
-
-    - name: "Flutter tests, stable channel"
-      os: linux
-      dist: trusty
-      language: ruby
-      script: ./tool/travis_flutter_script.sh
-      env: FLUTTER_VERSION=stable
-
-    - name: "iOS tests, beta channel"
-      os: osx
-      osx_image: xcode11.2
-      language: objective-c
-      script: ./tool/travis_ios_script.sh
-      env: FLUTTER_VERSION=beta
-
-    - name: "Android tests, beta channel"
-      os: linux
-      dist: trusty
-      language: android
-      android:
-        components:
-          - build-tools-28.0.3
-          - android-28
-      script: ./tool/travis_android_script.sh
-      env: FLUTTER_VERSION=beta
-
-    - name: "Flutter tests, beta channel"
-      os: linux
-      dist: trusty
-      language: ruby
-      script: ./tool/travis_flutter_script.sh
-      env: FLUTTER_VERSION=beta
 
   allow_failures:
     - env: FLUTTER_VERSION=beta
@@ -59,7 +27,6 @@ jobs:
 before_script:
   - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
   - ./flutter/bin/flutter doctor
-  - chmod +x tool/travis_*_script.sh
 
 cache:
   cocoapods: true

@@ -4,11 +4,11 @@ import 'package:shop/user/cart.dart';
 import 'package:flutter_translate/flutter_translate.dart';
 
 class ItemDetail extends StatefulWidget {
-  String itemName;
-  String itemImage;
-  String itemSubName;
-  double itemPrice;
-  double itemRating;
+  final String itemName;
+  final String itemImage;
+  final String itemSubName;
+  final double itemPrice;
+  final double itemRating;
 
   ItemDetail(
       {this.itemName,
