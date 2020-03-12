@@ -11,7 +11,7 @@ class _AppUsersState extends State<AppUsers> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text( translate("App Users") ),
+        title: new Text(translate("App Users")),
         centerTitle: false,
       ),
       body: new Center(

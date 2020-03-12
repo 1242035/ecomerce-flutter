@@ -11,12 +11,12 @@ class _GirliesProfileState extends State<GirliesProfile> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text( translate( "Profile" ) ),
+        title: new Text(translate("Profile")),
         centerTitle: false,
       ),
       body: new Center(
         child: new Text(
-          translate( "My Profile" ),
+          translate("My Profile"),
           style: new TextStyle(fontSize: 25.0),
         ),
       ),

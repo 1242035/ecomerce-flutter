@@ -41,8 +41,8 @@ class _AppState extends State<AppMain> {
   Future getCurrentUser() async {
     user = await appMethods.getCurrentUser();
     acctName = user != null && user.displayName != null ? user.displayName : '';
-    acctEmail = user != null && user.email != null ?  user.email : '';
-    acctPhotoURL = user != null && user.photoUrl != null ?  user.photoUrl : '';
+    acctEmail = user != null && user.email != null ? user.email : '';
+    acctPhotoURL = user != null && user.photoUrl != null ? user.photoUrl : '';
     isLoggedIn = user != null && user.uid != null ? true : false;
     acctName = acctName == null ? "Guest" : acctName;
     acctEmail = acctEmail == null ? "guest@email.com" : acctEmail;
@@ -56,7 +56,7 @@ class _AppState extends State<AppMain> {
       appBar: new AppBar(
         title: GestureDetector(
           onLongPress: openAdmin,
-          child: new Text( translate("ShopTitle") ),
+          child: new Text(translate("ShopTitle")),
         ),
         centerTitle: true,
         actions: <Widget>[
@@ -248,7 +248,7 @@ class _AppState extends State<AppMain> {
                   size: 20.0,
                 ),
               ),
-              title: new Text( translate("Order Notifications") ),
+              title: new Text(translate("Order Notifications")),
               onTap: () {
                 Navigator.of(context).push(new CupertinoPageRoute(
                     builder: (BuildContext context) =>
@@ -278,7 +278,7 @@ class _AppState extends State<AppMain> {
                   size: 20.0,
                 ),
               ),
-              title: new Text( translate("Profile Settings") ),
+              title: new Text(translate("Profile Settings")),
               onTap: () {
                 Navigator.of(context).push(new CupertinoPageRoute(
                     builder: (BuildContext context) => new GirliesProfile()));
@@ -292,7 +292,7 @@ class _AppState extends State<AppMain> {
                   size: 20.0,
                 ),
               ),
-              title: new Text( translate("Delivery Address") ),
+              title: new Text(translate("Delivery Address")),
               onTap: () {
                 Navigator.of(context).push(new CupertinoPageRoute(
                     builder: (BuildContext context) => new GirliesDelivery()));
@@ -322,7 +322,9 @@ class _AppState extends State<AppMain> {
                   size: 20.0,
                 ),
               ),
-              title: new Text(isLoggedIn == true ? translate("Logout") : translate("Login")),
+              title: new Text(isLoggedIn == true
+                  ? translate("Logout")
+                  : translate("Login")),
               onTap: checkIfLoggedIn,
             ),
           ],

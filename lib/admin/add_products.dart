@@ -51,7 +51,7 @@ class _AddProductsState extends State<AddProducts> {
       key: scaffoldKey,
       backgroundColor: Theme.of(context).primaryColor,
       appBar: new AppBar(
-        title: new Text( translate("Add Products") ),
+        title: new Text(translate("Add Products")),
         centerTitle: false,
         elevation: 0.0,
         actions: <Widget>[
@@ -196,37 +196,49 @@ class _AddProductsState extends State<AddProducts> {
 
   addNewProducts() {
     if (imageList == null || imageList.isEmpty) {
-      showSnackBar( translate('FieldCanNotEmpty', args:{ 'field': translate('Product Images')}), scaffoldKey);
+      showSnackBar(
+          translate('FieldCanNotEmpty',
+              args: {'field': translate('Product Images')}),
+          scaffoldKey);
       return;
     }
 
     if (prodcutTitle.text == "") {
-      showSnackBar(translate('FieldCanNotEmpty', args:{ 'field': translate('Product Title')}), scaffoldKey);
+      showSnackBar(
+          translate('FieldCanNotEmpty',
+              args: {'field': translate('Product Title')}),
+          scaffoldKey);
       return;
     }
 
     if (prodcutPrice.text == "") {
-      showSnackBar(translate('FieldCanNotEmpty', args:{ 'field': translate('Product Price')}), scaffoldKey);
+      showSnackBar(
+          translate('FieldCanNotEmpty',
+              args: {'field': translate('Product Price')}),
+          scaffoldKey);
       return;
     }
 
     if (prodcutDesc.text == "") {
-      showSnackBar(translate('FieldCanNotEmpty', args:{ 'field': translate('Product Description')}), scaffoldKey);
+      showSnackBar(
+          translate('FieldCanNotEmpty',
+              args: {'field': translate('Product Description')}),
+          scaffoldKey);
       return;
     }
 
-    if (selectedCategory == translate("Select Product category") ){
-      showSnackBar( translate("Please select a category"), scaffoldKey);
+    if (selectedCategory == translate("Select Product category")) {
+      showSnackBar(translate("Please select a category"), scaffoldKey);
       return;
     }
 
-    if (selectedColor == translate("Select a color") ) {
-      showSnackBar( translate("Please select a color"), scaffoldKey);
+    if (selectedColor == translate("Select a color")) {
+      showSnackBar(translate("Please select a color"), scaffoldKey);
       return;
     }
 
-    if (selectedSize == translate("Select a size") ){
-      showSnackBar( translate("Please select a size"), scaffoldKey);
+    if (selectedSize == translate("Select a size")) {
+      showSnackBar(translate("Please select a size"), scaffoldKey);
       return;
     }
   }

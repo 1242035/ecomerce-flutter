@@ -11,7 +11,7 @@ class _AppProductsState extends State<AppProducts> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text( translate("App Products") ),
+        title: new Text(translate("App Products")),
         centerTitle: false,
       ),
       body: new Center(

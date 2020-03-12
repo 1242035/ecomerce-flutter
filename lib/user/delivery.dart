@@ -11,7 +11,7 @@ class _GirliesDeliveryState extends State<GirliesDelivery> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text( translate("Delivery Information") ),
+        title: new Text(translate("Delivery Information")),
         centerTitle: false,
       ),
       body: new Center(

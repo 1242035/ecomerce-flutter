@@ -11,7 +11,7 @@ class _PrivilagesState extends State<Privilages> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text( translate("Privilages") ),
+        title: new Text(translate("Privilages")),
         centerTitle: false,
       ),
       body: new Center(

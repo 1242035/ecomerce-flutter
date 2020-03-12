@@ -27,7 +27,7 @@ class _ItemDetailState extends State<ItemDetail> {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: new AppBar(
-        title: new Text( translate("Item Detail") ),
+        title: new Text(translate("Item Detail")),
         centerTitle: false,
         iconTheme: IconThemeData(color: Colors.white),
       ),
@@ -210,7 +210,8 @@ class _ItemDetailState extends State<ItemDetail> {
                                 return Padding(
                                   padding: const EdgeInsets.all(4.0),
                                   child: new ChoiceChip(
-                                      label: new Text( translate("ColorIndex", args: {"index": index} ) ),
+                                      label: new Text(translate("ColorIndex",
+                                          args: {"index": index})),
                                       selected: false),
                                 );
                               }),
@@ -235,7 +236,8 @@ class _ItemDetailState extends State<ItemDetail> {
                                 return Padding(
                                   padding: const EdgeInsets.all(4.0),
                                   child: new ChoiceChip(
-                                      label: new Text(translate("SizeIndex", args: {"index": index} ) ),
+                                      label: new Text(translate("SizeIndex",
+                                          args: {"index": index})),
                                       selected: false),
                                 );
                               }),

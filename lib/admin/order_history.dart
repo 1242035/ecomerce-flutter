@@ -11,7 +11,7 @@ class _OrderHistoryState extends State<OrderHistory> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text( translate("Order History") ),
+        title: new Text(translate("Order History")),
         centerTitle: false,
       ),
       body: new Center(

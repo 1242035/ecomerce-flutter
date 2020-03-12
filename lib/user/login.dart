@@ -24,7 +24,7 @@ class _GirliesLoginState extends State<GirliesLogin> {
       key: scaffoldKey,
       backgroundColor: Theme.of(context).primaryColor,
       appBar: new AppBar(
-        title: new Text( translate("Login") ),
+        title: new Text(translate("Login")),
         centerTitle: false,
         elevation: 0.0,
       ),
@@ -37,7 +37,7 @@ class _GirliesLoginState extends State<GirliesLogin> {
             appTextField(
                 isPassword: false,
                 sidePadding: 18.0,
-                textHint:translate("Email Address"),
+                textHint: translate("Email Address"),
                 textIcon: Icons.email,
                 controller: email),
             new SizedBox(
@@ -72,12 +72,16 @@ class _GirliesLoginState extends State<GirliesLogin> {
 
   verifyLoggin() async {
     if (email.text == "") {
-      showSnackBar( translate('FieldCanNotEmpty', args:{"field": translate('Email')}), scaffoldKey);
+      showSnackBar(
+          translate('FieldCanNotEmpty', args: {"field": translate('Email')}),
+          scaffoldKey);
       return;
     }
 
     if (password.text == "") {
-      showSnackBar( translate('FieldCanNotEmpty', args:{"field": translate('Password')}), scaffoldKey);
+      showSnackBar(
+          translate('FieldCanNotEmpty', args: {"field": translate('Password')}),
+          scaffoldKey);
       return;
     }
 

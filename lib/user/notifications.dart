@@ -11,7 +11,7 @@ class _GirliesNotificationsState extends State<GirliesNotifications> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text( translate("Order Notifications") ),
+        title: new Text(translate("Order Notifications")),
         centerTitle: false,
       ),
       body: new Center(

@@ -11,7 +11,7 @@ class _GirliesCartState extends State<GirliesCart> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text( translate("Cart") ),
+        title: new Text(translate("Cart")),
         centerTitle: false,
       ),
       body: new Center(

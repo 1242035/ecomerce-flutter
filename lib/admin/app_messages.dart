@@ -11,12 +11,12 @@ class _AppMessagesState extends State<AppMessages> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text( translate("App Messages") ),
+        title: new Text(translate("App Messages")),
         centerTitle: false,
       ),
       body: new Center(
         child: new Text(
-          translate( "App Messages" ),
+          translate("App Messages"),
           style: new TextStyle(fontSize: 25.0),
         ),
       ),

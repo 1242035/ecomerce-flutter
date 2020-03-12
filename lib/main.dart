@@ -10,7 +10,8 @@ void main() async {
   var delegate = await LocalizationDelegate.create(
       preferences: TranslatePreferences(),
       basePath: 'assets/i18n/',
-      fallbackLocale: 'en', supportedLocales: ['en', 'vi']);
+      fallbackLocale: 'en',
+      supportedLocales: ['en', 'vi']);
 
   Crashlytics.instance.enableInDevMode = true;
 

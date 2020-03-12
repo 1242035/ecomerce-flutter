@@ -26,7 +26,7 @@ class _SignUpState extends State<SignUp> {
       key: scaffoldKey,
       backgroundColor: Theme.of(context).primaryColor,
       appBar: new AppBar(
-        title: new Text( translate("Sign Up") ),
+        title: new Text(translate("Sign Up")),
         centerTitle: false,
         elevation: 0.0,
       ),
@@ -92,27 +92,39 @@ class _SignUpState extends State<SignUp> {
 
   verifyDetails() async {
     if (fullname.text == "") {
-      showSnackBar( translate('FieldCanNotEmpty', args: {"field": translate("Full name") } ), scaffoldKey);
+      showSnackBar(
+          translate('FieldCanNotEmpty',
+              args: {"field": translate("Full name")}),
+          scaffoldKey);
       return;
     }
 
     if (phoneNumber.text == "") {
-      showSnackBar( translate('FieldCanNotEmpty', args: {"field": translate("Phone") } ), scaffoldKey);
+      showSnackBar(
+          translate('FieldCanNotEmpty', args: {"field": translate("Phone")}),
+          scaffoldKey);
       return;
     }
 
     if (email.text == "") {
-      showSnackBar( translate('FieldCanNotEmpty', args: {"field": translate("Email") } ), scaffoldKey);
+      showSnackBar(
+          translate('FieldCanNotEmpty', args: {"field": translate("Email")}),
+          scaffoldKey);
       return;
     }
 
     if (password.text == "") {
-      showSnackBar( translate('FieldCanNotEmpty', args: {"field": translate("Password") } ), scaffoldKey);
+      showSnackBar(
+          translate('FieldCanNotEmpty', args: {"field": translate("Password")}),
+          scaffoldKey);
       return;
     }
 
     if (rePassword.text == "") {
-      showSnackBar( translate('FieldCanNotEmpty', args: {"field": translate("Re-Password") } ) , scaffoldKey);
+      showSnackBar(
+          translate('FieldCanNotEmpty',
+              args: {"field": translate("Re-Password")}),
+          scaffoldKey);
       return;
     }
 

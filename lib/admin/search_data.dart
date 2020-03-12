@@ -11,7 +11,7 @@ class _SearchDataState extends State<SearchData> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text( translate("Search Data") ),
+        title: new Text(translate("Search Data")),
         centerTitle: false,
       ),
       body: new Center(

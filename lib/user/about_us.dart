@@ -11,7 +11,7 @@ class _GirliesAboutUsState extends State<GirliesAboutUs> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text( translate("About Us") ),
+        title: new Text(translate("About Us")),
         centerTitle: false,
       ),
       body: new Center(

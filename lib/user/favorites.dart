@@ -11,7 +11,7 @@ class _GirliesFavoritiesState extends State<GirliesFavorities> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: new Text( translate("My Favorites") ),
+        title: new Text(translate("My Favorites")),
         centerTitle: false,
       ),
       body: new Center(

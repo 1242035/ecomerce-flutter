@@ -38,7 +38,7 @@ Widget appTextField(
 }
 
 Widget appButton(
-  {String btnTxt,
+    {String btnTxt,
     double btnPadding,
     Color btnColor,
     VoidCallback onBtnclicked}) {
@@ -158,7 +158,7 @@ Widget MultiImagePickerMap(
     VoidCallback addNewImage(int position),
     VoidCallback removeNewImage(int position)}) {
   int imageLength = imageList.isEmpty ? 1 : imageList.length + 1;
-  
+
   return new Padding(
     padding: const EdgeInsets.only(left: 15.0, right: 15.0),
     child: new SizedBox(

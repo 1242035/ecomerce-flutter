@@ -2,27 +2,26 @@ import 'dart:ui';
 import 'package:flutter_translate/flutter_translate.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class TranslatePreferences implements ITranslatePreferences
-{
-    static const String _selectedLocaleKey = 'app_locale';
+class TranslatePreferences implements ITranslatePreferences {
+  static const String _selectedLocaleKey = 'app_locale';
 
-    @override
-    Future<Locale> getPreferredLocale() async
-    {
-        final preferences = await SharedPreferences.getInstance();
+  @override
+  Future<Locale> getPreferredLocale() async {
+    final preferences = await SharedPreferences.getInstance();
 
-        if(!preferences.containsKey(_selectedLocaleKey)) { return null; }
-
-        var locale = preferences.getString(_selectedLocaleKey);
-
-        return localeFromString(locale);
+    if (!preferences.containsKey(_selectedLocaleKey)) {
+      return null;
     }
 
-    @override
-    Future savePreferredLocale(Locale locale) async
-    {
-        final preferences = await SharedPreferences.getInstance();
+    var locale = preferences.getString(_selectedLocaleKey);
 
-        await preferences.setString(_selectedLocaleKey, localeToString(locale));
-    }
+    return localeFromString(locale);
+  }
+
+  @override
+  Future savePreferredLocale(Locale locale) async {
+    final preferences = await SharedPreferences.getInstance();
+
+    await preferences.setString(_selectedLocaleKey, localeToString(locale));
+  }
 }

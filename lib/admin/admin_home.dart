@@ -23,7 +23,7 @@ class _AdminHomeState extends State<AdminHome> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: new AppBar(
-        title: new Text( translate("App Admin") ),
+        title: new Text(translate("App Admin")),
         centerTitle: true,
         elevation: 0.0,
       ),
@@ -52,7 +52,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text( translate("Search Data") ),
+                        new Text(translate("Search Data")),
                       ],
                     ),
                   ),
@@ -71,7 +71,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text( translate("App Users") ),
+                        new Text(translate("App Users")),
                       ],
                     ),
                   ),
@@ -98,7 +98,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text( translate("App Orders") ),
+                        new Text(translate("App Orders")),
                       ],
                     ),
                   ),
@@ -117,7 +117,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text( translate("App Messages") ),
+                        new Text(translate("App Messages")),
                       ],
                     ),
                   ),
@@ -144,7 +144,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text( translate("App Products") ),
+                        new Text(translate("App Products")),
                       ],
                     ),
                   ),
@@ -163,7 +163,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text( translate("Add Products") ),
+                        new Text(translate("Add Products")),
                       ],
                     ),
                   ),
@@ -190,7 +190,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text( translate("Order History") ),
+                        new Text(translate("Order History")),
                       ],
                     ),
                   ),
@@ -209,7 +209,7 @@ class _AdminHomeState extends State<AdminHome> {
                         new SizedBox(
                           height: 10.0,
                         ),
-                        new Text( translate("Privilages") ),
+                        new Text(translate("Privilages")),
                       ],
                     ),
                   ),

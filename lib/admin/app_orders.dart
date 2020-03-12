@@ -11,7 +11,7 @@ class _AppOrdersState extends State<AppOrders> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text( translate("App Orders") ),
+        title: new Text(translate("App Orders")),
         centerTitle: false,
       ),
       body: new Center(

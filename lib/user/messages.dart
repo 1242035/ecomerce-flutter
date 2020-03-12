@@ -11,12 +11,12 @@ class _GirliesMessagesState extends State<GirliesMessages> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text( translate("Messages") ),
+        title: new Text(translate("Messages")),
         centerTitle: false,
       ),
       body: new Center(
         child: new Text(
-          translate( "My Messages" ),
+          translate("My Messages"),
           style: new TextStyle(fontSize: 25.0),
         ),
       ),
