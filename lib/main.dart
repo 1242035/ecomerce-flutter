@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'user/app_main.dart';
 
+
 void main() async {
   var delegate = await LocalizationDelegate.create(
       preferences: TranslatePreferences(),
