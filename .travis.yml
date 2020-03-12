@@ -22,7 +22,7 @@ jobs:
 before_script:
   - git clone -b stable https://github.com/flutter/flutter.git
   - ./flutter/bin/flutter doctor
-  - ./flutter/bin/flutter public get
+  - ./flutter/bin/flutter pub get
 cache:
   cocoapods: true
   directories:
