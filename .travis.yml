@@ -7,7 +7,7 @@ jobs:
       os: osx
       osx_image: xcode11.2
       language: objective-c
-      script: ./flutter/bin/flutter -v build ios --no-codesign
+      script: travis_wait ./flutter/bin/flutter -v build ios --no-codesign
 
     - name: "Android build stable"
       os: linux
@@ -17,7 +17,7 @@ jobs:
         components:
           - build-tools-28.0.3
           - android-28
-      script: ./flutter/bin/flutter build apk
+      script: travis_wait ./flutter/bin/flutter build apk --target-platform android-arm,android-arm64,android-x64 --split-per-abi
 
 before_script:
   - git clone -b stable https://github.com/flutter/flutter.git
