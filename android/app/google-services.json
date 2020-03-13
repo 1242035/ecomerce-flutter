@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "240904058394",
+    "firebase_url": "https://viauco-shop-1f709.firebaseio.com",
+    "project_id": "viauco-shop-1f709",
+    "storage_bucket": "viauco-shop-1f709.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240904058394:android:38aa6195b60fad6b4c03a3",
+        "android_client_info": {
+          "package_name": "com.viauco.shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240904058394-e4kkgs0u0bbaupunp33h19fb7nb56b5s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.viauco.shop",
+            "certificate_hash": "7d0b72a62cf953195b2c9a2c307c7f9dceede6d0"
+          }
+        },
+        {
+          "client_id": "240904058394-d7os9d7tvnqbj7b4hn63g8dp3vl9n7cb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBR193IBUWarB3WbxN9UV5Eb5wlOHio6EY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240904058394-d7os9d7tvnqbj7b4hn63g8dp3vl9n7cb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

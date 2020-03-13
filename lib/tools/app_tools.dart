@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:shop/tools/progressdialog.dart';
+import 'package:shop/tools/progress_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 
 Widget appTextField(
     {IconData textIcon,
@@ -11,8 +12,8 @@ Widget appTextField(
     double sidePadding,
     TextInputType textType,
     TextEditingController controller}) {
-  sidePadding == null ? sidePadding = 0.0 : sidePadding;
-  textHint == null ? textHint = "" : textHint;
+  sidePadding = sidePadding == null ? 0.0 : sidePadding;
+  textHint = textHint == null ? "" : textHint;
   //textType == null ? textType == TextInputType.text : textType;
 
   return Padding(
@@ -37,13 +38,13 @@ Widget appTextField(
 }
 
 Widget appButton(
-    {String btnTxt,
+  {String btnTxt,
     double btnPadding,
     Color btnColor,
     VoidCallback onBtnclicked}) {
-  btnTxt == null ? btnTxt == "App Button" : btnTxt;
-  btnPadding == null ? btnPadding = 0.0 : btnPadding;
-  btnColor == null ? btnColor = Colors.black : btnColor;
+  btnTxt = btnTxt ?? translate("App Button");
+  btnPadding = btnPadding ?? 0.0;
+  btnColor = btnColor ?? Colors.black;
 
   return Padding(
     padding: new EdgeInsets.all(btnPadding),
@@ -71,9 +72,9 @@ Widget productTextField(
     double height,
     TextEditingController controller,
     TextInputType textType}) {
-  textTitle == null ? textTitle = "Enter Title" : textTitle;
-  textHint == null ? textHint = "Enter Hint" : textHint;
-  height == null ? height = 50.0 : height;
+  textTitle = textTitle ?? translate("Enter Title");
+  textHint = textHint ?? translate("Enter Hint");
+  height = height ?? 50.0;
   //height !=null
 
   return Column(
@@ -100,7 +101,7 @@ Widget productTextField(
             padding: const EdgeInsets.only(left: 8.0, right: 8.0),
             child: new TextField(
               controller: controller,
-              keyboardType: textType == null ? TextInputType.text : textType,
+              keyboardType: textType ?? TextInputType.text,
               decoration: new InputDecoration(
                   border: InputBorder.none, hintText: textHint),
             ),
@@ -116,7 +117,7 @@ Widget productDropDown(
     String selectedItem,
     List<DropdownMenuItem<String>> dropDownItems,
     ValueChanged<String> changedDropDownItems}) {
-  textTitle == null ? textTitle = "Enter Title" : textTitle;
+  textTitle = textTitle ?? translate("Enter Title");
 
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -157,10 +158,7 @@ Widget MultiImagePickerMap(
     VoidCallback addNewImage(int position),
     VoidCallback removeNewImage(int position)}) {
   int imageLength = imageList.isEmpty ? 1 : imageList.length + 1;
-  bool isNull = imageList.isEmpty ? true : false;
-
-  print("Image length is $imageLength");
-
+  
   return new Padding(
     padding: const EdgeInsets.only(left: 15.0, right: 15.0),
     child: new SizedBox(

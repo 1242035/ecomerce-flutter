@@ -1,0 +1,42 @@
+keytool -genkey -v -keystore ViaucoAndroidKeyDebug.keystore -alias ViaucoAndroidKeyDebug -keyalg RSA -keysize 2048 -validity 10000
+
+keytool -exportcert -list -v -alias ViaucoAndroidKeyDebug -keystore ~/.android/ViaucoAndroidKeyDebug.keystore
+
+Android app signing with Google Play upload key/certificate (.des)
+One of the most frustrating things I ran into during my quest to get my Android APK ready for the Play store was the signing part. I selected the option to let Google take care of signing my APK in the Google Play console. My idea was that I could upload an unsigned APK to Play store and that Google would take care of the rest. This assumption was incorrect so to say. I still had to find a way to sign my apk with the certificate that I got in the Google Play console. The Play store will provide you with a certificate in .des format and we need to have a keystore to sign an APK.
+
+After searching for very long, looking for a solution and the steps Google expected me to take I found the/a solution. This in combination with the zipalign and apksigner tools which I mentioned in another post.
+
+The steps one need to take are:
+
+create a keystore (this is a process which is described in many places)
+add the .des certificate to this keystore
+use the keystore to sign your unsigned-zipalign-release.apk
+ 
+
+The main breakthrough was this Signing an APK with Google Play upload key page I found and then the link in the comments to
+
+Android app signing with Google Play upload key/certificate (.des)
+One of the most frustrating things I ran into during my quest to get my Android APK ready for the Play store was the signing part. I selected the option to let Google take care of signing my APK in the Google Play console. My idea was that I could upload an unsigned APK to Play store and that Google would take care of the rest. This assumption was incorrect so to say. I still had to find a way to sign my apk with the certificate that I got in the Google Play console. The Play store will provide you with a certificate in .des format and we need to have a keystore to sign an APK.
+
+After searching for very long, looking for a solution and the steps Google expected me to take I found the/a solution. This in combination with the zipalign and apksigner tools which I mentioned in another post.
+
+The steps one need to take are:
+
+create a keystore (this is a process which is described in many places)
+add the .des certificate to this keystore
+use the keystore to sign your unsigned-zipalign-release.apk
+ 
+
+The main breakthrough was this Signing an APK with Google Play upload key page I found and then the link in the comments to
+
+Generate a keystore
+keytool -genkey -v -keystore <name>.jks -keyalg RSA -keysize 2048 - validity 10000 -alias <alias-name>
+Or you can use Android Studio to generate a keystore.
+
+Add .des certificate to keystore
+As described in the post I mentioned above you can add the .des certificate to your keystore.
+
+keytool -importcert -file <google-play-console-certificate>.der -keystore <your-keystore-name>.jks
+Sign your apk
+apksigner sign --ks <your-keystore-name>.jks <unsigned-aligned-release>.apk
