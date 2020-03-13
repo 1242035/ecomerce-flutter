@@ -1,7 +1,6 @@
 matrix:
   fast_finish: true
   allow_failures:
-  - env: JOB=APK
   - env: JOB=IPA
   include:
   - env: JOB=IPA
@@ -32,7 +31,7 @@ cache:
   - "$HOME/.pub-cache"
 branches:
   only:
-  - v1
+  - master
 deploy:
   provider: releases
   api_key:
@@ -40,4 +39,4 @@ deploy:
   file: build/ios/iphoneos/app.ipa
   on:
     repo: 1242035/ecomerce-flutter
-    branch: v1
+    branch: master
