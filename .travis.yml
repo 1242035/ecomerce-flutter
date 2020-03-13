@@ -7,14 +7,15 @@ matrix:
   - env: JOB=IPA
     os: osx
     language: generic
+    osx_image: xcode11.2
     before_script:
-    - brew update
-    - brew install --HEAD usbmuxd
-    - brew unlink usbmuxd
-    - brew link usbmuxd
-    - brew install --HEAD libimobiledevice
-    - brew install ideviceinstaller
-    - brew install ios-deploy
+    #- brew update
+    #- brew install --HEAD usbmuxd
+    #- brew unlink usbmuxd
+    #- brew link usbmuxd
+    #- brew install --HEAD libimobiledevice
+    #- brew install ideviceinstaller
+    #- brew install ios-deploy
     - git clone https://github.com/flutter/flutter.git -b beta --depth 1
     script:
     - flutter/bin/flutter build ios --debug --no-codesign
