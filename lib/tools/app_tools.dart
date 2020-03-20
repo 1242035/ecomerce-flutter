@@ -117,11 +117,7 @@ Widget productDropDown(
     String selectedItem,
     List<DropdownMenuItem<String>> dropDownItems,
     ValueChanged<String> changedDropDownItems}) {
-<<<<<<< HEAD
   textTitle = textTitle == null ? translate("Enter Title") : textTitle;
-=======
-  textTitle = textTitle ?? translate("Enter Title");
->>>>>>> 02d4b023d4e5901b70b67db2486820a1bf38142c
 
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
