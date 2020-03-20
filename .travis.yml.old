@@ -1,0 +1,38 @@
+git:
+  depth: 3
+
+jobs:
+  include:
+    - name: "iOS build stable"
+      os: osx
+      osx_image: xcode11.2
+      language: objective-c
+      script: travis_wait ./flutter/bin/flutter -v build ios --no-codesign
+
+    - name: "Android build stable"
+      os: linux
+      dist: trusty
+      language: android
+      android:
+        components:
+          - build-tools-28.0.3
+          - android-28
+      script: travis_wait ./flutter/bin/flutter build apk --target-platform android-arm,android-arm64,android-x64 --split-per-abi
+
+before_script:
+  - git clone -b stable https://github.com/flutter/flutter.git
+  - ./flutter/bin/flutter doctor
+  - ./flutter/bin/flutter pub get
+cache:
+  cocoapods: true
+  directories:
+    - $HOME/shared/.pub-cache
+
+notifications:
+  email:
+    chidungdekiemtra@gmail.com
+
+# Building master alone means that we don't run two builds for
+# each pull request.
+branches:
+  only: [v1]

@@ -12,8 +12,8 @@ Widget appTextField(
     double sidePadding,
     TextInputType textType,
     TextEditingController controller}) {
-  sidePadding == null ? sidePadding = 0.0 : sidePadding;
-  textHint == null ? textHint = "" : textHint;
+  sidePadding = sidePadding == null ? 0.0 : sidePadding;
+  textHint = textHint == null ? "" : textHint;
   //textType == null ? textType == TextInputType.text : textType;
 
   return Padding(
@@ -101,7 +101,7 @@ Widget productTextField(
             padding: const EdgeInsets.only(left: 8.0, right: 8.0),
             child: new TextField(
               controller: controller,
-              keyboardType: textType == null ? TextInputType.text : textType,
+              keyboardType: textType ?? TextInputType.text,
               decoration: new InputDecoration(
                   border: InputBorder.none, hintText: textHint),
             ),
@@ -117,7 +117,11 @@ Widget productDropDown(
     String selectedItem,
     List<DropdownMenuItem<String>> dropDownItems,
     ValueChanged<String> changedDropDownItems}) {
+<<<<<<< HEAD
   textTitle = textTitle == null ? translate("Enter Title") : textTitle;
+=======
+  textTitle = textTitle ?? translate("Enter Title");
+>>>>>>> 02d4b023d4e5901b70b67db2486820a1bf38142c
 
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,

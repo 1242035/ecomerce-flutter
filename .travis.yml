@@ -1,76 +1,42 @@
-git:
-  depth: 3
-
-jobs:
-  include:
-    - name: "iOS tests, stable channel"
-      os: osx
-      osx_image: xcode11.2
-      language: objective-c
-      script: ./tool/travis_ios_script.sh
-      env: FLUTTER_VERSION=stable
-
-    - name: "Android tests, stable channel"
-      os: linux
-      dist: trusty
-      language: android
-      android:
-        components:
-          - build-tools-28.0.3
-          - android-28
-      script: ./tool/travis_android_script.sh
-      env: FLUTTER_VERSION=stable
-
-    - name: "Flutter tests, stable channel"
-      os: linux
-      dist: trusty
-      language: ruby
-      script: ./tool/travis_flutter_script.sh
-      env: FLUTTER_VERSION=stable
-
-    - name: "iOS tests, beta channel"
-      os: osx
-      osx_image: xcode11.2
-      language: objective-c
-      script: ./tool/travis_ios_script.sh
-      env: FLUTTER_VERSION=beta
-
-    - name: "Android tests, beta channel"
-      os: linux
-      dist: trusty
-      language: android
-      android:
-        components:
-          - build-tools-28.0.3
-          - android-28
-      script: ./tool/travis_android_script.sh
-      env: FLUTTER_VERSION=beta
-
-    - name: "Flutter tests, beta channel"
-      os: linux
-      dist: trusty
-      language: ruby
-      script: ./tool/travis_flutter_script.sh
-      env: FLUTTER_VERSION=beta
-
+matrix:
+  fast_finish: true
   allow_failures:
-    - env: FLUTTER_VERSION=beta
-
-before_script:
-  - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
-  - ./flutter/bin/flutter doctor
-  - chmod +x tool/travis_*_script.sh
-
+  - env: JOB=IPA
+  include:
+  - env: JOB=IPA
+    os: osx
+    language: generic
+    osx_image: xcode11.3
+    before_script:
+    #- brew update
+    #- brew install --HEAD usbmuxd
+    #- brew unlink usbmuxd
+    #- brew link usbmuxd
+    #- brew install --HEAD libimobiledevice
+    #- brew install ideviceinstaller
+    #- brew install ios-deploy
+    - git clone https://github.com/flutter/flutter.git -b beta --depth 1
+    script:
+    - flutter/bin/flutter build ios --debug --no-codesign
+    before_deploy:
+    - pushd build/ios/iphoneos
+    - mkdir Payload
+    - cd Payload
+    - ln -s ../Runner.app
+    - cd ..
+    - zip -r app.ipa Payload
+    - popd
 cache:
-  cocoapods: true
   directories:
-    - $HOME/shared/.pub-cache
-
-notifications:
-  email:
-    chidungdekiemtra@gmail.com
-
-# Building master alone means that we don't run two builds for
-# each pull request.
+  - "$HOME/.pub-cache"
 branches:
-  only: [v1]
+  only:
+  - master
+deploy:
+  provider: releases
+  api_key:
+    secure: lWZxrcwe/6OJbXbOV4nBT8GgFNErtAMRv73l1tHHraZHysLmV9SgwznXZyufTvMpoNOqXGsqOtaLwo2zw2mw3IFLJ8IoA+x3fOgpmuULqFhIiU0yCxHA82+YYEshegkIhSboIJrqN8u5dnascOX43UxJQ9LesboFGQj1mkdBSCLruE87C+Z2fcyEP9tVpez501n6b5iiwcW1EBJO+Jn6IgU1O20egKOTjQduYesjUw128cqjuZiEW716+RcY6+4vgzB5RlHE7SPLQcfZw/OB8P9e7hVf+0CbpfelOdmJguCM0YdwkzkOEU0YafUVgl+3xwjROO+lm1JK4rH7XvBd7zASV1uNsqn5laq9W8wSNmHsK/mh3hJ3yakNianv0XxEed+grP7U7UnsMcEIm6d3RTe5nxQY96bSI1ZWTzoTYH0xpqpS+PjYkwWgcv/b0Z4hdXXGKRASbUjmEMLHzbKh6lMQ0FoLWDye18BPvsXj0Fv9bvBvgJt7mNgnfleEtoHJOQDgkZTSNx4ihq/jdlfQpeb1tjsaEPAMWxLQkRNz0I//TcPTuLXlhjEsepE2FgBH0UQJsuiGh1fVa7ojg773jww0IhYLSVvWDZhPZ/y7sCQI2nzzQYZHrP2lWlHCZSFWBaN0IXButHIyRYixzmGV3yaLGAC8IUegiGGWBaoqH2A=
+  file: build/ios/iphoneos/app.ipa
+  on:
+    repo: 1242035/ecomerce-flutter
+    branch: master

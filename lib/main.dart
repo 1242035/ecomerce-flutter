@@ -1,4 +1,5 @@
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter_translate/flutter_translate.dart';
 import 'package:shop/locale/translate_preferences.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,6 +12,10 @@ void main() async {
       basePath: 'assets/i18n/',
       fallbackLocale: 'en', supportedLocales: ['en', 'vi']);
 
+  Crashlytics.instance.enableInDevMode = true;
+
+  // Pass all uncaught errors from the framework to Crashlytics.
+  FlutterError.onError = Crashlytics.instance.recordFlutterError;
   runApp(LocalizedApp(delegate, App()));
 }
 
