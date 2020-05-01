@@ -70,7 +70,7 @@ packages:
       name: firebase
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.2.1"
+    version: "7.3.0"
   firebase_analytics:
     dependency: "direct main"
     description:
@@ -84,7 +84,7 @@ packages:
       name: firebase_auth
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.15.5+2"
+    version: "0.16.0"
   firebase_auth_platform_interface:
     dependency: transitive
     description:
@@ -138,7 +138,7 @@ packages:
       name: flutter_device_locale
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.4+1"
+    version: "0.4.0"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
@@ -150,7 +150,7 @@ packages:
       name: flutter_plugin_android_lifecycle
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.6"
+    version: "1.0.7"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -162,7 +162,7 @@ packages:
       name: flutter_translate
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.7"
+    version: "1.6.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -174,14 +174,14 @@ packages:
       name: http
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.0+4"
+    version: "0.12.1"
   http_parser:
     dependency: transitive
     description:
       name: http_parser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.3"
+    version: "3.1.4"
   image:
     dependency: transitive
     description:
@@ -195,7 +195,7 @@ packages:
       name: image_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.3+4"
+    version: "0.6.5+3"
   intl:
     dependency: transitive
     description:
@@ -265,14 +265,14 @@ packages:
       name: shared_preferences
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.6+3"
+    version: "0.5.7"
   shared_preferences_macos:
     dependency: transitive
     description:
       name: shared_preferences_macos
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1+6"
+    version: "0.0.1+7"
   shared_preferences_platform_interface:
     dependency: transitive
     description:
@@ -356,5 +356,5 @@ packages:
     source: hosted
     version: "3.5.0"
 sdks:
-  dart: ">=2.7.0-dev <3.0.0"
-  flutter: ">=1.12.13+hotfix.4 <2.0.0"
+  dart: ">=2.7.0 <3.0.0"
+  flutter: ">=1.12.13+hotfix.5 <2.0.0"
